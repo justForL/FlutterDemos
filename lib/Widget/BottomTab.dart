@@ -21,10 +21,18 @@ class _BottomTabState extends State<BottomTab> {
   }
 
   void _centerBtnClick() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (BuildContext context) {
-      return Router();
-    }));
+    Navigator.of(context).push(MaterialPageRoute(
+        fullscreenDialog: true,
+        builder: (BuildContext context) {
+          return Router();
+        }));
+  }
+
+  void _changeCurrentIndex(int index) {
+    if (_index == index) return;
+    setState(() {
+      _index = index;
+    });
   }
 
   @override
@@ -38,19 +46,13 @@ class _BottomTabState extends State<BottomTab> {
                 shape: BoxShape.circle,
                 color: Colors.white,
               ),
-              child: 
-              // Icon(
-              //       Icons.add,
-              //       color: Colors.lightBlueAccent,
-              //     )
-              SizedBox(
+              child: SizedBox(
                   height: 48,
                   width: 48,
                   child: Icon(
                     Icons.add,
                     color: Colors.lightBlueAccent,
-                  ))
-                  ),
+                  ))),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
@@ -61,23 +63,13 @@ class _BottomTabState extends State<BottomTab> {
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 IconButton(
-                  icon: Icon(Icons.home),
-                  color: Colors.white,
-                  onPressed: () {
-                    setState(() {
-                      _index = 0;
-                    });
-                  },
-                ),
+                    icon: Icon(Icons.home),
+                    color: Colors.white,
+                    onPressed: () => _changeCurrentIndex(0)),
                 IconButton(
-                  icon: Icon(Icons.contacts),
-                  color: Colors.white,
-                  onPressed: () {
-                    setState(() {
-                      _index = 1;
-                    });
-                  },
-                )
+                    icon: Icon(Icons.contacts),
+                    color: Colors.white,
+                    onPressed: () => _changeCurrentIndex(1))
               ],
             )));
   }
