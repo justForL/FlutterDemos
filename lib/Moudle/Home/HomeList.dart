@@ -1,11 +1,22 @@
+import 'package:demo02/Moudle/Home/WX9Button.dart';
+import 'package:demo02/Router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 void main() => runApp(HomeList());
 
+enum HomeItemEnum { Modal, WX9Button, TextField }
+
+class HomeListItemModel {
+  String title;
+  HomeItemEnum type;
+  HomeListItemModel(this.title, this.type);
+}
+
 class HomeList extends StatelessWidget {
   final List<HomeListItemModel> _dataSource = [
-    HomeListItemModel("Modal"),
+    HomeListItemModel("Modal", HomeItemEnum.Modal),
+    HomeListItemModel("微信九宫格", HomeItemEnum.WX9Button),
   ];
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,13 +29,6 @@ class HomeList extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return HomeListItem(_dataSource[index], index);
           },
-          // separatorBuilder: (BuildContext context, int index) {
-          //   return Container(
-          //     height: 0.5,
-          //     color: Colors.grey,
-          //     margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-          //   );
-          // }
         ));
   }
 }
@@ -34,15 +38,39 @@ class HomeListItem extends StatelessWidget {
   final int index;
   HomeListItem(this.model, this.index);
 
+  void _itemOnPress(
+    BuildContext context,
+  ) {
+    print(this.model.type);
+    switch (this.model.type) {
+      case HomeItemEnum.Modal:
+        {
+          _routeJumpAction(context, Router(), true);
+        }
+        break;
+      case HomeItemEnum.WX9Button:
+        {
+          _routeJumpAction(context, WX9Button(), false);
+        }
+        break;
+      default:
+    }
+  }
+
+  void _routeJumpAction(BuildContext context, Widget route, bool fullScurren) {
+    Navigator.of(context).push(MaterialPageRoute(
+        fullscreenDialog: fullScurren,
+        builder: (BuildContext context) {
+          return route;
+        }));
+  }
+
   @override
   Widget build(
     BuildContext context,
   ) {
     return GestureDetector(
-      onTap: () {
-        //处理点击事件
-        print(this.index);
-      },
+      onTap: () => _itemOnPress(context),
       child: Container(
           color: Colors.white,
           padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
@@ -56,9 +84,4 @@ class HomeListItem extends StatelessWidget {
           )),
     );
   }
-}
-
-class HomeListItemModel {
-  String title;
-  HomeListItemModel(this.title);
 }

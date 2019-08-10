@@ -1,6 +1,5 @@
 import 'package:demo02/Moudle/Home/HomeList.dart';
 import 'package:demo02/Router.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(BottomTab());
