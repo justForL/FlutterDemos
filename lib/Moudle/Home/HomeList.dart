@@ -1,3 +1,4 @@
+import 'package:demo02/Moudle/Home/TextFieldDemo.dart';
 import 'package:demo02/Moudle/Home/WX9Button.dart';
 import 'package:demo02/Router.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class HomeList extends StatelessWidget {
   final List<HomeListItemModel> _dataSource = [
     HomeListItemModel("Modal", HomeItemEnum.Modal),
     HomeListItemModel("微信九宫格", HomeItemEnum.WX9Button),
+    HomeListItemModel("TextField聚焦", HomeItemEnum.TextField),
   ];
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +53,11 @@ class HomeListItem extends StatelessWidget {
       case HomeItemEnum.WX9Button:
         {
           _routeJumpAction(context, WX9Button(), false);
+        }
+        break;
+        case HomeItemEnum.TextField:
+        {
+          _routeJumpAction(context, TextFieldDemo(), false);
         }
         break;
       default:
