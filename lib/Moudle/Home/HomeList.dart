@@ -1,3 +1,5 @@
+import 'package:demo02/Moudle/Home/ExpentionDemo.dart';
+import 'package:demo02/Moudle/Home/ScrollToTopDemo.dart';
 import 'package:demo02/Moudle/Home/TextFieldDemo.dart';
 import 'package:demo02/Moudle/Home/WX9Button.dart';
 import 'package:demo02/Router.dart';
@@ -6,7 +8,7 @@ import 'package:flutter/widgets.dart';
 
 void main() => runApp(HomeList());
 
-enum HomeItemEnum { Modal, WX9Button, TextField }
+enum HomeItemEnum { Modal, WX9Button, TextField, ExpansionDemo,ScrollToTop,ScrollBottomBar }
 
 class HomeListItemModel {
   String title;
@@ -19,6 +21,9 @@ class HomeList extends StatelessWidget {
     HomeListItemModel("Modal", HomeItemEnum.Modal),
     HomeListItemModel("微信九宫格", HomeItemEnum.WX9Button),
     HomeListItemModel("TextField聚焦", HomeItemEnum.TextField),
+    HomeListItemModel("expansion_demo", HomeItemEnum.ExpansionDemo),
+    HomeListItemModel("ScrollToTop", HomeItemEnum.ScrollToTop),
+    HomeListItemModel("ScrollBottomBar", HomeItemEnum.ScrollBottomBar),
   ];
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,11 +60,22 @@ class HomeListItem extends StatelessWidget {
           _routeJumpAction(context, WX9Button(), false);
         }
         break;
-        case HomeItemEnum.TextField:
+      case HomeItemEnum.TextField:
         {
           _routeJumpAction(context, TextFieldDemo(), false);
         }
         break;
+      case HomeItemEnum.ExpansionDemo:
+        {
+          _routeJumpAction(context, ExpentionDemo(), false);
+        }
+        break;
+        case HomeItemEnum.ScrollToTop:
+        {
+          _routeJumpAction(context, ScrollToTopDemo(), false);
+        }
+        break;
+
       default:
     }
   }

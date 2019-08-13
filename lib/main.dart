@@ -1,4 +1,3 @@
-
 import 'package:demo02/Widget/BottomTab.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +8,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Demos',
+      // theme: new ThemeData(
+      //   brightness: Brightness.dark,
+      //   primaryColor: Colors.lightBlue[800],
+      //   accentColor: Colors.cyan[600],
+      // ),
       home: BottomTab(),
-      );
+    );
   }
 }
