@@ -16,12 +16,12 @@ class _ScrollToTopDemoState extends State<ScrollToTopDemo> {
     super.initState();
     _listViewController = ScrollController();
   }
-
-  void _floatButtonClick() {
-    if (_listViewController.offset != 0) {
-      _listViewController.animateTo(0,duration:Duration(seconds: 1),curve: Curves.easeIn);
-    }
+  @override
+  void dispose() {
+    super.dispose();
+    _listViewController.dispose();
   }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -44,5 +44,12 @@ class _ScrollToTopDemoState extends State<ScrollToTopDemo> {
         },
       ),
     );
+  }
+
+  void _floatButtonClick() {
+    if (_listViewController.offset != 0) {
+      _listViewController.animateTo(0,
+          duration: Duration(seconds: 1), curve: Curves.easeIn);
+    }
   }
 }

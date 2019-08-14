@@ -1,4 +1,5 @@
 import 'package:demo02/Moudle/Home/ExpentionDemo.dart';
+import 'package:demo02/Moudle/Home/ScrollBottomBar.dart';
 import 'package:demo02/Moudle/Home/ScrollToTopDemo.dart';
 import 'package:demo02/Moudle/Home/TextFieldDemo.dart';
 import 'package:demo02/Moudle/Home/WX9Button.dart';
@@ -73,6 +74,11 @@ class HomeListItem extends StatelessWidget {
         case HomeItemEnum.ScrollToTop:
         {
           _routeJumpAction(context, ScrollToTopDemo(), false);
+        }
+        break;
+         case HomeItemEnum.ScrollBottomBar:
+        {
+          _routeJumpAction(context, ScrollBottomBar(), false);
         }
         break;
 
