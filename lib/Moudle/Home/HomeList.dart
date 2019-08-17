@@ -3,13 +3,14 @@ import 'package:demo02/Moudle/Home/ScrollBottomBar.dart';
 import 'package:demo02/Moudle/Home/ScrollToTopDemo.dart';
 import 'package:demo02/Moudle/Home/TextFieldDemo.dart';
 import 'package:demo02/Moudle/Home/WX9Button.dart';
+import 'package:demo02/Moudle/Home/YYDemo.dart';
 import 'package:demo02/Router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 void main() => runApp(HomeList());
 
-enum HomeItemEnum { Modal, WX9Button, TextField, ExpansionDemo,ScrollToTop,ScrollBottomBar }
+enum HomeItemEnum { Modal, WX9Button, TextField, ExpansionDemo,ScrollToTop,ScrollBottomBar,ListDemo }
 
 class HomeListItemModel {
   String title;
@@ -25,6 +26,7 @@ class HomeList extends StatelessWidget {
     HomeListItemModel("expansion_demo", HomeItemEnum.ExpansionDemo),
     HomeListItemModel("ScrollToTop", HomeItemEnum.ScrollToTop),
     HomeListItemModel("ScrollBottomBar", HomeItemEnum.ScrollBottomBar),
+    HomeListItemModel("YYDemo", HomeItemEnum.ListDemo),
   ];
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,6 +81,11 @@ class HomeListItem extends StatelessWidget {
          case HomeItemEnum.ScrollBottomBar:
         {
           _routeJumpAction(context, ScrollBottomBar(), false);
+        }
+        break;
+        case HomeItemEnum.ListDemo:
+        {
+          _routeJumpAction(context, YYDemo(), false);
         }
         break;
 
