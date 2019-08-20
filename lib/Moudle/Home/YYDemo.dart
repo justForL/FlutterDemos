@@ -120,7 +120,7 @@ class SingleStoryItem extends StatelessWidget {
                             children: <Widget>[
                               Expanded(
                                 child: Text(
-                                  'dfsdfsdffsfsfsfssdssdfssfsfsfsddffsfssdffsfsfssfs',
+                                  'dfsdfsdffsfsfssdffsfsfsfssdssdfssfsfsfsddffsfssdffsfsfssfsfssdssdfssfsfsfsddffsfssdffsfsfssfs',
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 2,
                                 ),

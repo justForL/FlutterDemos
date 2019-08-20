@@ -1,3 +1,4 @@
+import 'package:demo02/Moudle/Home/AnimationButtonDemo.dart';
 import 'package:demo02/Moudle/Home/ExpentionDemo.dart';
 import 'package:demo02/Moudle/Home/GlobalKeyDemo.dart';
 import 'package:demo02/Moudle/Home/RefreshControlDemo.dart';
@@ -20,7 +21,8 @@ enum HomeItemEnum {
   ScrollToTop,
   ScrollBottomBar,
   ListDemo,
-  RefreshControl,
+  AnimationButton,
+  // RefreshControl,
   GlobalKey,
 }
 
@@ -40,7 +42,7 @@ class HomeList extends StatelessWidget {
     HomeListItemModel("ScrollBottomBar", HomeItemEnum.ScrollBottomBar),
     HomeListItemModel("YYDemo", HomeItemEnum.ListDemo),
     HomeListItemModel("GlobalKeyDemo", HomeItemEnum.GlobalKey),
-    HomeListItemModel("RefreshControl", HomeItemEnum.RefreshControl),
+    HomeListItemModel("AnimationButtonDemo", HomeItemEnum.AnimationButton),
   ];
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,9 +104,9 @@ class HomeListItem extends StatelessWidget {
           _routeJumpAction(context, YYDemo(), false);
         }
         break;
-      case HomeItemEnum.RefreshControl:
+      case HomeItemEnum.AnimationButton:
         {
-          _routeJumpAction(context, RefreshControlDemo(), false);
+          _routeJumpAction(context, AnimationButtonDemo(), false);
         }
         break;
       case HomeItemEnum.GlobalKey:
