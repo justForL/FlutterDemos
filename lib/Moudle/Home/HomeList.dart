@@ -1,4 +1,6 @@
 import 'package:demo02/Moudle/Home/ExpentionDemo.dart';
+import 'package:demo02/Moudle/Home/GlobalKeyDemo.dart';
+import 'package:demo02/Moudle/Home/RefreshControlDemo.dart';
 import 'package:demo02/Moudle/Home/ScrollBottomBar.dart';
 import 'package:demo02/Moudle/Home/ScrollToTopDemo.dart';
 import 'package:demo02/Moudle/Home/TextFieldDemo.dart';
@@ -10,7 +12,17 @@ import 'package:flutter/widgets.dart';
 
 void main() => runApp(HomeList());
 
-enum HomeItemEnum { Modal, WX9Button, TextField, ExpansionDemo,ScrollToTop,ScrollBottomBar,ListDemo }
+enum HomeItemEnum {
+  Modal,
+  WX9Button,
+  TextField,
+  ExpansionDemo,
+  ScrollToTop,
+  ScrollBottomBar,
+  ListDemo,
+  RefreshControl,
+  GlobalKey,
+}
 
 class HomeListItemModel {
   String title;
@@ -27,6 +39,8 @@ class HomeList extends StatelessWidget {
     HomeListItemModel("ScrollToTop", HomeItemEnum.ScrollToTop),
     HomeListItemModel("ScrollBottomBar", HomeItemEnum.ScrollBottomBar),
     HomeListItemModel("YYDemo", HomeItemEnum.ListDemo),
+    HomeListItemModel("GlobalKeyDemo", HomeItemEnum.GlobalKey),
+    HomeListItemModel("RefreshControl", HomeItemEnum.RefreshControl),
   ];
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,22 +87,31 @@ class HomeListItem extends StatelessWidget {
           _routeJumpAction(context, ExpentionDemo(), false);
         }
         break;
-        case HomeItemEnum.ScrollToTop:
+      case HomeItemEnum.ScrollToTop:
         {
           _routeJumpAction(context, ScrollToTopDemo(), false);
         }
         break;
-         case HomeItemEnum.ScrollBottomBar:
+      case HomeItemEnum.ScrollBottomBar:
         {
           _routeJumpAction(context, ScrollBottomBar(), false);
         }
         break;
-        case HomeItemEnum.ListDemo:
+      case HomeItemEnum.ListDemo:
         {
           _routeJumpAction(context, YYDemo(), false);
         }
         break;
-
+      case HomeItemEnum.RefreshControl:
+        {
+          _routeJumpAction(context, RefreshControlDemo(), false);
+        }
+        break;
+      case HomeItemEnum.GlobalKey:
+        {
+          _routeJumpAction(context, GlobalKeyDemo(), false);
+        }
+        break;
       default:
     }
   }

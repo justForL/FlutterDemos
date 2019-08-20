@@ -15,7 +15,6 @@ class _YYDemoState extends State<YYDemo> with SingleTickerProviderStateMixin {
       appBar: AppBar(
         title: Text("ListDemo"),
         // automaticallyImplyLeading: false
-        
       ),
       body: Container(child: _buildListView()),
     );
@@ -44,9 +43,6 @@ class ListItem extends StatelessWidget {
       child: Padding(
           padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
           child: Container(
-            // width: 335,
-            // height: 335,
-            // color: Colors.red,
             child: Wrap(children: <Widget>[
               StoryItem(),
               StoryItem(),
@@ -116,30 +112,36 @@ class SingleStoryItem extends StatelessWidget {
                       Row(
                         children: <Widget>[Text("123")],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Expanded(
-                            child: Text(
-                              "12312312313123123123123ssssssseeeeeeeess1",
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(10, 0, 20, 20),
-                            child: FloatingActionButton(
-                              onPressed: () {},
-                              child: (Icon(Icons.add)),
-                            ),
-                          )
-                        ],
-                      )
+                      Container(
+                          padding: EdgeInsets.fromLTRB(20, 0, 10, 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Expanded(
+                                child: Text(
+                                  'dfsdfsdffsfsfsfssdssdfssfsfsfsddffsfssdffsfsfssfs',
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 2,
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: FloatingActionButton(
+                                  heroTag: null,
+                                  onPressed: () {},
+                                  child: (Icon(Icons.add)),
+                                ),
+                              ),
+                            ],
+                          )),
                     ],
                   ),
                   Positioned(
                     top: 10,
                     right: 10,
                     child: FloatingActionButton(
+                      heroTag: null,
                       child: Icon(
                         Icons.add,
                         color: Colors.white,
