@@ -10,7 +10,7 @@ class CounterDemo extends StatelessWidget {
   }
 
   Widget _buildContent(BuildContext context) {
-    final CounterBloc _bloc = BlocProvider.of<CounterBloc>(context);
+    final CounterBloc _bloc = CounterBloc();
 
     return Scaffold(
       appBar: AppBar(

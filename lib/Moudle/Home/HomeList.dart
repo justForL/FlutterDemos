@@ -120,8 +120,7 @@ class HomeListItem extends StatelessWidget {
         break;
       case HomeItemEnum.CounterDemo:
         {
-          
-          _routeJumpAction(context, BlocProvider(builder: (context)=>CounterBloc(),child: CounterDemo(),), false);
+          _routeJumpAction(context, CounterDemo(), false);
         }
         break;
       default:
