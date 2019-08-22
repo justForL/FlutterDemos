@@ -1,3 +1,4 @@
+import 'package:demo02/Blocs/Counter/counter_bloc.dart';
 import 'package:demo02/Moudle/Home/AnimationButtonDemo.dart';
 import 'package:demo02/Moudle/Home/Counter.dart';
 import 'package:demo02/Moudle/Home/ExpentionDemo.dart';
@@ -10,6 +11,7 @@ import 'package:demo02/Moudle/Home/YYDemo.dart';
 import 'package:demo02/Router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() => runApp(HomeList());
 
@@ -118,7 +120,8 @@ class HomeListItem extends StatelessWidget {
         break;
       case HomeItemEnum.CounterDemo:
         {
-          _routeJumpAction(context, CounterDemo(), false);
+          
+          _routeJumpAction(context, BlocProvider(builder: (context)=>CounterBloc(),child: CounterDemo(),), false);
         }
         break;
       default:
