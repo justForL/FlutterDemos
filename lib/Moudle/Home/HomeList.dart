@@ -1,4 +1,3 @@
-import 'package:demo02/Blocs/Counter/counter_bloc.dart';
 import 'package:demo02/Moudle/Home/AnimationButtonDemo.dart';
 import 'package:demo02/Moudle/Home/Counter.dart';
 import 'package:demo02/Moudle/Home/ExpentionDemo.dart';
@@ -8,10 +7,10 @@ import 'package:demo02/Moudle/Home/ScrollToTopDemo.dart';
 import 'package:demo02/Moudle/Home/TextFieldDemo.dart';
 import 'package:demo02/Moudle/Home/WX9Button.dart';
 import 'package:demo02/Moudle/Home/YYDemo.dart';
+import 'package:demo02/Moudle/Home/weather_demo.dart';
 import 'package:demo02/Router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() => runApp(HomeList());
 
@@ -27,6 +26,7 @@ enum HomeItemEnum {
   // RefreshControl,
   GlobalKey,
   CounterDemo,
+  WeatherDemo,
 }
 
 class HomeListItemModel {
@@ -47,6 +47,7 @@ class HomeList extends StatelessWidget {
     HomeListItemModel("GlobalKeyDemo", HomeItemEnum.GlobalKey),
     HomeListItemModel("AnimationButtonDemo", HomeItemEnum.AnimationButton),
     HomeListItemModel("CounterDemo", HomeItemEnum.CounterDemo),
+    HomeListItemModel("TimerDemo", HomeItemEnum.WeatherDemo),
   ];
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,6 +122,11 @@ class HomeListItem extends StatelessWidget {
       case HomeItemEnum.CounterDemo:
         {
           _routeJumpAction(context, CounterDemo(), false);
+        }
+        break;
+        case HomeItemEnum.WeatherDemo:
+        {
+          _routeJumpAction(context, WeatherDemo(), false);
         }
         break;
       default:
