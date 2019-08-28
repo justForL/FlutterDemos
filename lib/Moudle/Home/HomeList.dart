@@ -7,6 +7,7 @@ import 'package:demo02/Moudle/Home/ScrollToTopDemo.dart';
 import 'package:demo02/Moudle/Home/TextFieldDemo.dart';
 import 'package:demo02/Moudle/Home/WX9Button.dart';
 import 'package:demo02/Moudle/Home/YYDemo.dart';
+import 'package:demo02/Moudle/Home/network_util_demo.dart';
 import 'package:demo02/Moudle/Home/weather_demo.dart';
 import 'package:demo02/Router.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,7 @@ enum HomeItemEnum {
   GlobalKey,
   CounterDemo,
   WeatherDemo,
+  NetworkUtilTest
 }
 
 class HomeListItemModel {
@@ -48,6 +50,8 @@ class HomeList extends StatelessWidget {
     HomeListItemModel("AnimationButtonDemo", HomeItemEnum.AnimationButton),
     HomeListItemModel("CounterDemo", HomeItemEnum.CounterDemo),
     HomeListItemModel("TimerDemo", HomeItemEnum.WeatherDemo),
+    HomeListItemModel("NetworkUtilTest", HomeItemEnum.NetworkUtilTest),
+    
   ];
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,6 +133,12 @@ class HomeListItem extends StatelessWidget {
           _routeJumpAction(context, WeatherDemo(), false);
         }
         break;
+        case HomeItemEnum.NetworkUtilTest:
+        {
+          _routeJumpAction(context, NetworkUtilTest(), false);
+        }
+        break;
+        
       default:
     }
   }
