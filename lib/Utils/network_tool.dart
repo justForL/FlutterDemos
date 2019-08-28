@@ -33,12 +33,11 @@ class HttpUtil extends BaseHttpUtil {
     print("param:${response.request.queryParameters.toString()}");
     print("code:${response.statusCode}");
     print("data:${response.data}");
-
     print("------------------------------------->");
   }
 
   _onError(DioError error) {
-    // print(error);
+    print(error);
   }
 
   HttpUtil._internal() {
@@ -57,7 +56,7 @@ class HttpUtil extends BaseHttpUtil {
   }
 
   Future post(String path, {Map<String, dynamic> param}) async {
-    FormData formaData = FormData.from(param);
+    FormData formaData = FormData.from(param??{});
     return _post(path, param: formaData);
   }
 

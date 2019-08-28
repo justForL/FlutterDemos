@@ -10,7 +10,7 @@ class NetworkUtilTest extends StatefulWidget {
 
 class _NetworkUtilTestState extends State<NetworkUtilTest> {
   _btnOnPress() {
-   HttpUtil().post('journalismApi',param: {"name":"james"});
+   HttpUtil().post('journalismApi');
   }
 
   @override
